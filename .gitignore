@@ -1,0 +1,12 @@
+echo venv/ > .gitignore
+echo __pycache__/ >> .gitignore
+echo *.pyc >> .gitignore
+echo dist/ >> .gitignore
+echo build/ >> .gitignore
+echo *.spec >> .gitignore
+
+.venv/
+
+__pycache__/
+*.pyc
+.idea/
