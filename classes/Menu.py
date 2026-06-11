@@ -50,8 +50,7 @@ class Menu:
         controles = [
             ("A / Esquerda", "Mover para esquerda"),
             ("D / Direita", "Mover para direita"),
-            ("W / Cima", "Pular"),
-            ("Espaço", "Atirar"),
+            ("Espaço", "Pular"),
         ]
 
         # centraliza as linhas de controle
