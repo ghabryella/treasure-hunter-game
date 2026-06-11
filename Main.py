@@ -2,15 +2,17 @@ import pygame
 import sys
 from classes.Menu import Menu
 
+# inicia o pygame e o mixer do audio
 pygame.init()
 pygame.mixer.init()
 
+# tamanho da janela
 largura = 800
 altura = 600
 
-janela = pygame.display.set_mode((largura, altura))
+janela = pygame.display.set_mode((largura, altura))  # criacao da janela
 
-menu = Menu(janela)
+menu = Menu(janela)  # criacao do menu e o loop
 
 while True:
     menu.desenhar()
