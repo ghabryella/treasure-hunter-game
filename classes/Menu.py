@@ -8,6 +8,7 @@ class Menu:
         self.largura = janela.get_width()
         self.altura = janela.get_height()
 
+
         # carrega as imagens do fundo do menu
         caminho_fundo = os.path.join("assets", "images", "fundos", "background_menu.png")
         imagem_fundo_raw = pygame.image.load(caminho_fundo)
@@ -21,13 +22,16 @@ class Menu:
 
         # definicao do estilo e tamanho das fontes
         self.fonte_titulo = pygame.font.SysFont("Georgia", 65, bold=True)
-        self.fonte_normal = pygame.font.SysFont("Georgia", 20, bold=True)
+        self.fonte_normal = pygame.font.SysFont("Arial", 18, bold=True)
+        self.fonte_nome = pygame.font.SysFont("Arial", 14)
 
         # definicao das cores dos textos exibidos
-        self.cor_titulo = (38, 113, 65)
+        self.cor_titulo = (94, 134, 76)
         self.cor_texto = (255, 255, 255)
         self.cor_botao = (255, 255, 255)
         self.cor_contorno = (255, 255, 255)
+        self.cor_nome = (161, 161, 161)
+
 
     def texto_com_contorno(self, texto, fonte, cor, x, y):
         contorno = fonte.render(texto, True, self.cor_contorno)
@@ -41,10 +45,16 @@ class Menu:
     def desenhar(self):
         self.janela.blit(self.imagem_fundo, (0, 0))  # imagem do fundo cobrindo a tela inteira
         # titulo centralizado na tela
-        x_treasure = self.largura // 2 - self.fonte_titulo.size("Treasure")[0] // 2
-        x_hunter = self.largura // 2 - self.fonte_titulo.size("Hunter")[0] // 2
-        self.texto_com_contorno("Treasure", self.fonte_titulo, self.cor_titulo, x_treasure, 80)
-        self.texto_com_contorno("Hunter", self.fonte_titulo, self.cor_titulo, x_hunter, 160)
+
+        # meu nome no pergaminho
+        nome = self.fonte_nome.render("DESENVOLVIDO POR GHABRYELLA", True, self.cor_nome)
+        x_nome = self.largura // 2 - nome.get_width() // 2
+        self.janela.blit(nome, (x_nome, 68))
+
+        x_treasure = self.largura // 2 - self.fonte_titulo.size("TREASURE")[0] // 2
+        x_hunter = self.largura // 2 - self.fonte_titulo.size("HUNTER")[0] // 2
+        self.texto_com_contorno("TREASURE", self.fonte_titulo, self.cor_titulo, x_treasure, 130)
+        self.texto_com_contorno("HUNTER", self.fonte_titulo, self.cor_titulo, x_hunter, 200)
 
         # exibe os controles na tela
         controles = [
@@ -58,11 +68,11 @@ class Menu:
             linha = tecla + "  -  " + acao
             texto = self.fonte_normal.render(linha, True, self.cor_texto)
             x = self.largura // 2 - texto.get_width() // 2
-            self.janela.blit(texto, (x, 310 + i * 35))
+            self.janela.blit(texto, (x, 290 + i * 25))
 
         # botao de jogar
         x_botao = self.largura // 2 - self.fonte_normal.size("ENTER - Jogar")[0] // 2
-        self.janela.blit(self.fonte_normal.render("ENTER - Jogar", True, self.cor_botao), (x_botao, 480))
+        self.janela.blit(self.fonte_normal.render("ENTER - Jogar", True, self.cor_botao), (x_botao, 368))
 
         # atualiza a tela
         pygame.display.flip()

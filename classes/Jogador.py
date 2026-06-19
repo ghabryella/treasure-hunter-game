@@ -6,13 +6,13 @@ class Jogador:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.velocidade = 3 # velocidade do movimento na horizontal
+        self.velocidade = 3  # velocidade do movimento na horizontal
         # tamanho do jogador
-        self.largura = 20
-        self.altura = 40
-        self.velocidade_vertical = 0 # velocidade vertical usada na funcao pular e gravidade
+        self.largura = 300
+        self.altura = 300
+        self.velocidade_vertical = 0  # velocidade vertical usada na funcao pular e gravidade
         self.no_chao = False
-        self.direcao_direita = True # indica para qual lado o jogador está virado
+        self.direcao_direita = True  # indica para qual lado o jogador está virado
 
         # carrega a imagem do jogador
         caminho_jogador = os.path.join("assets", "images", "jogador", "jogador.png")
@@ -50,6 +50,12 @@ class Jogador:
         # aumenta a velocidade vertical
         self.velocidade_vertical += 1
         self.y += self.velocidade_vertical
+
+        # chao
+        if self.y >= 150:
+            self.y = 150
+            self.velocidade_vertical = 0
+            self.no_chao = True
 
     # retorna o retangulo de impacto do jogador
     def detectar_impactos(self):
