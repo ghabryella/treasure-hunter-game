@@ -8,7 +8,6 @@ class Menu:
         self.largura = janela.get_width()
         self.altura = janela.get_height()
 
-
         # carrega as imagens do fundo do menu
         caminho_fundo = os.path.join("assets", "images", "fundos", "background_menu.png")
         imagem_fundo_raw = pygame.image.load(caminho_fundo)
@@ -30,9 +29,9 @@ class Menu:
         self.cor_texto = (255, 255, 255)
         self.cor_botao = (255, 255, 255)
         self.cor_contorno = (255, 255, 255)
-        self.cor_nome = (161, 161, 161)
+        self.cor_nome = (102, 102, 99)
 
-
+    # texto com contorno em todos os lados para melhorar a leitura
     def texto_com_contorno(self, texto, fonte, cor, x, y):
         contorno = fonte.render(texto, True, self.cor_contorno)
         self.janela.blit(contorno, (x - 2, y))  # contorno na esquerda
@@ -44,7 +43,6 @@ class Menu:
 
     def desenhar(self):
         self.janela.blit(self.imagem_fundo, (0, 0))  # imagem do fundo cobrindo a tela inteira
-        # titulo centralizado na tela
 
         # meu nome no pergaminho
         nome = self.fonte_nome.render("DESENVOLVIDO POR GHABRYELLA", True, self.cor_nome)

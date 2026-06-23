@@ -16,6 +16,7 @@ pygame.display.set_caption("Treasure Hunter")
 
 estado = "menu"
 
+# loop que controla as telas do jogo
 while estado != "sair":
     if estado == "menu":
         menu = Menu(janela)
@@ -31,7 +32,7 @@ while estado != "sair":
                 break
 
     elif estado == "jogando":
-        jogo = Jogo(janela)
+        jogo = Jogo(janela) # inicia o jogo
         estado = jogo.executar()
-pygame.quit()
+pygame.quit() # encerra o pygame e fecha o programa
 sys.exit()

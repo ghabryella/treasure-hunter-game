@@ -36,7 +36,7 @@ class Jogador:
     # funcao que permite que o jogador pule somente se estiver no chao
     def pular(self):
         if self.no_chao:
-            self.velocidade_vertical = -15
+            self.velocidade_vertical = -20
             self.no_chao = False
 
     # funcao que faz com que a imagem correta do jogador seja exibida de acordo com a direção
@@ -51,12 +51,14 @@ class Jogador:
         self.velocidade_vertical += 1
         self.y += self.velocidade_vertical
 
-        # chao
+        # define o limite do chao
         if self.y >= 150:
             self.y = 150
             self.velocidade_vertical = 0
             self.no_chao = True
 
-    # retorna o retangulo de impacto do jogador
+    # retorna o retangulo de colisao do jogador
     def detectar_impactos(self):
-        return pygame.Rect(self.x, self.y, self.largura, self.altura)
+        return pygame.Rect(
+            self.x + 120, self.y + 110, 45, 145
+        )

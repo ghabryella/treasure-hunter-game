@@ -7,9 +7,9 @@ class Obstaculo:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.velocidade = 1  # velocidade do movimento para a esquerda
-        self.largura = 10  # largura da imagem do obstaculo
-        self.altura = 10  # altura da imagem do obstaculo
+        self.velocidade = 3  # velocidade do movimento para a esquerda
+        self.largura = 50  # largura da imagem do obstaculo
+        self.altura = 50  # altura da imagem do obstaculo
 
         # carrega a imagem do obstaculo
         caminho_obstaculo = os.path.join("assets", "images", "obstaculo", "obstaculo.png")

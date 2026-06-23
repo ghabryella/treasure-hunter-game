@@ -7,9 +7,9 @@ class Tesouro:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.velocidade = 2  # velocidade do movimento do tesouro para a esquerda
-        self.largura = 5  # largura da imagem do tesouro
-        self.altura = 5  # altura da imagem do tesouro
+        self.velocidade = 3  # velocidade do movimento do tesouro para a esquerda
+        self.largura = 30  # largura da imagem do tesouro
+        self.altura = 30  # altura da imagem do tesouro
         self.coletado = False  # se o tesouro já foi coletado pelo jogador ou nao
 
         # carrega a imagem do tesouro
@@ -28,4 +28,4 @@ class Tesouro:
 
     # funcao que retorna a area de colisão do tesouro pra verificar se o jogador encostou 
     def detectar_impactos(self):
-        return pygame.Rect(self.x, self.y, self.largura, self.altura)
+        return pygame.Rect(self.x - 5, self.y - 5, self.largura + 10, self.altura + 10)
